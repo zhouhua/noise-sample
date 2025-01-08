@@ -72,7 +72,7 @@ export default function FractalGenerator() {
   }, [settings]);
 
   return (
-    <main className="min-h-screen p-8 flex flex-col items-center justify-center gap-8">
+    <main className="flex flex-col items-center justify-center gap-8 py-8">
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-2">分形噪点生成器</h1>
         <p className="text-sm text-muted-foreground">调整参数来生成不同的分形噪点图案</p>
