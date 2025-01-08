@@ -223,6 +223,7 @@ export default function NoiseGenerator() {
               width="100%"
               height="100%"
               filter="url(#noise)"
+              // @ts-ignore
               style={{ mixBlendMode: settings.blendMode }}
             />
           </svg>
