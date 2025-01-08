@@ -431,6 +431,7 @@ const renderFilter = (config: FilterConfig) => {
   const renderOperation = (op: FilterConfig['operations'][0], index: number) => {
     if (op.children) {
       return (
+        // @ts-ignore
         <op.type key={`op-${index}`} {...op.attrs}>
           {op.children.map((child, i) => (
             <child.type key={`child-${index}-${i}`} {...child.attrs} />
@@ -472,10 +473,12 @@ export default function SvgTurbulenceGenerator() {
     setSettings(prev => ({
       ...prev,
       preset,
+      // @ts-ignore
       baseFrequencyX: presetConfig.baseFrequencyX ||
         (typeof presetConfig.baseFrequency === 'string' ?
           parseFloat(presetConfig.baseFrequency.split(' ')[0]) :
           presetConfig.baseFrequency),
+      // @ts-ignore
       baseFrequencyY: presetConfig.baseFrequencyY ||
         (typeof presetConfig.baseFrequency === 'string' ?
           parseFloat(presetConfig.baseFrequency.split(' ')[1]) :
