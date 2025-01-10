@@ -8,6 +8,8 @@ import { Chrome } from '@uiw/react-color';
 import { CopyButton } from "@/components/ui/copy-button";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useLanguage } from '@/i18n/context';
+import { t as translate } from '@/i18n';
 
 interface Settings {
   baseFrequencyX: number;
@@ -450,6 +452,7 @@ const renderFilter = (config: FilterConfig) => {
 };
 
 export default function SvgTurbulenceGenerator() {
+  const { language } = useLanguage();
   const [settings, setSettings] = useState<Settings>({
     baseFrequencyX: 0.02,
     baseFrequencyY: 0.02,
@@ -493,8 +496,8 @@ export default function SvgTurbulenceGenerator() {
   return (
     <main className="flex flex-col items-center justify-center gap-8 py-8">
       <div className="text-center">
-        <h1 className="text-2xl font-bold mb-2">SVG 湍流噪点生成器</h1>
-        <p className="text-sm text-muted-foreground">使用 SVG feTurbulence 滤镜生成湍流噪点</p>
+        <h1 className="text-2xl font-bold mb-2">{translate('svgTurbulence.title', language)}</h1>
+        <p className="text-sm text-muted-foreground">{translate('svgTurbulence.description', language)}</p>
       </div>
 
       <div className='flex flex-col gap-8 items-center'>
@@ -503,7 +506,7 @@ export default function SvgTurbulenceGenerator() {
             <div className="space-y-4">
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">预设效果</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.preset', language)}</span>
                 </div>
                 <Select
                   value={settings.preset}
@@ -513,19 +516,15 @@ export default function SvgTurbulenceGenerator() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="default">默认效果</SelectItem>
-                    <SelectItem value="fire">火焰效果</SelectItem>
-                    {/* <SelectItem value="smoke">烟雾效果</SelectItem>
-                    <SelectItem value="water">水波效果</SelectItem>
-                    <SelectItem value="electricity">电流效果</SelectItem>
-                    <SelectItem value="lightning">闪电效果</SelectItem> */}
+                    <SelectItem value="default">{translate('svgTurbulence.defaultEffect', language)}</SelectItem>
+                    <SelectItem value="fire">{translate('svgTurbulence.fireEffect', language)}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">X 轴基础频率</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.frequencyX', language)}</span>
                   <span className="text-sm text-muted-foreground">
                     {settings.baseFrequencyX.toFixed(3)}
                   </span>
@@ -547,7 +546,7 @@ export default function SvgTurbulenceGenerator() {
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">Y 轴基础频率</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.frequencyY', language)}</span>
                   <span className="text-sm text-muted-foreground">
                     {settings.baseFrequencyY.toFixed(3)}
                   </span>
@@ -569,7 +568,7 @@ export default function SvgTurbulenceGenerator() {
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">叠加次数</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.octaves', language)}</span>
                   <span className="text-sm text-muted-foreground">
                     {settings.numOctaves}
                   </span>
@@ -588,7 +587,7 @@ export default function SvgTurbulenceGenerator() {
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">背景颜色</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.backgroundColor', language)}</span>
                 </div>
                 <div className="relative">
                   <Button
@@ -626,7 +625,7 @@ export default function SvgTurbulenceGenerator() {
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium">混合模式</span>
+                  <span className="text-sm font-medium">{translate('svgTurbulence.blendMode', language)}</span>
                 </div>
                 <Select
                   value={settings.blendMode}
@@ -653,7 +652,7 @@ export default function SvgTurbulenceGenerator() {
               onClick={regenerate}
               className="w-full"
             >
-              重新生成
+              {translate('svgTurbulence.regenerate', language)}
             </Button>
           </div>
 

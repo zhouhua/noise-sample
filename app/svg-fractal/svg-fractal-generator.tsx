@@ -15,6 +15,8 @@ import {
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyButton } from "@/components/ui/copy-button";
+import { useLanguage } from '@/i18n/context';
+import { t as translate } from '@/i18n';
 
 interface Settings {
   baseFrequency: number | string;
@@ -317,6 +319,7 @@ ${filterContent}
 };
 
 export default function SvgFractalGenerator() {
+  const { language } = useLanguage();
   const [settings, setSettings] = useState<Settings>({
     baseFrequency: 0.02,
     numOctaves: 4,
@@ -350,8 +353,8 @@ export default function SvgFractalGenerator() {
   return (
     <main className="flex flex-col items-center justify-center gap-8 py-8">
       <div className="text-center">
-        <h1 className="text-2xl font-bold mb-2">SVG 分形噪点生成器</h1>
-        <p className="text-sm text-muted-foreground">使用 SVG feTurbulence 滤镜生成分形噪点</p>
+        <h1 className="text-2xl font-bold mb-2">{translate('svgFractal.title', language)}</h1>
+        <p className="text-sm text-muted-foreground">{translate('svgFractal.description', language)}</p>
       </div>
       <div className='flex flex-col gap-8 items-center'>
         <div className="flex gap-8 items-start">
