@@ -60,7 +60,8 @@ export default {
     clipMode: '截断模式',
     normalMode: '正常模式',
     dropHint: '拖放图片到这里...',
-    uploadHint: '点击或拖放图片到这里上传'
+    uploadHint: '点击或拖放图片到这里上传',
+    scale: '偏移系数',
   },
   svgTurbulence: {
     title: 'SVG 湍流噪点效果',

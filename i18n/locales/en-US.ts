@@ -60,7 +60,8 @@ export default {
     clipMode: 'Clip Mode',
     normalMode: 'Normal Mode',
     dropHint: 'Drop image here...',
-    uploadHint: 'Click or drop image here to upload'
+    uploadHint: 'Click or drop image here to upload',
+    scale: 'Offset Scale'
   },
   svgTurbulence: {
     title: 'SVG Turbulence Noise Effect',
