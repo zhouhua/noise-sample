@@ -45,7 +45,7 @@ export default function LineAnimationGenerator() {
   useEffect(() => {
     let animationFrameId: number;
     let lastTime = performance.now();
-    let pauseTimeout: NodeJS.Timeout;
+    let pauseTimeout: NodeJS.Timeout = 0 as unknown as NodeJS.Timeout;
 
     const animate = (currentTime: number) => {
       const deltaTime = currentTime - lastTime;
