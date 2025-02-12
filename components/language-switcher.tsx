@@ -48,22 +48,23 @@ export function LanguageSwitcher() {
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-
-      <Button
-        variant="ghost"
-        size="icon"
-        className="w-9 px-0"
-        asChild
-      >
-        <a
-          href="https://github.com/zhouhua/noise-sample"
-          target="_blank"
-          rel="noopener noreferrer"
+      {top === self && (
+        <Button
+          variant="ghost"
+          size="icon"
+          className="w-9 px-0"
+          asChild
         >
-          <SiGithub className="h-4 w-4" />
-          <span className="sr-only">GitHub</span>
-        </a>
-      </Button>
+          <a
+            href="https://github.com/zhouhua/noise-sample"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiGithub className="h-4 w-4" />
+            <span className="sr-only">GitHub</span>
+          </a>
+        </Button>
+      )}
     </div>
   );
 } 
